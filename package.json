@@ -1,0 +1,18 @@
+{
+  "name": "published-sitedata",
+  "version": "0.0.1",
+  "description": "Published PTM / Site data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hiren Joshi",
+  "license": "ISC",
+  "dependencies": {
+    "coerce-tabular": "^1.0.0",
+    "excel-stream": "^1.1.1",
+    "jsonpath-object-transform": "hirenj/jsonpath-object-transform",
+    "snake-case": "^2.1.0",
+    "tabular-stream": "^2.0.1"
+  }
+}
