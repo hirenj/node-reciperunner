@@ -11,6 +11,7 @@
   "dependencies": {
     "coerce-tabular": "^1.0.0",
     "excel-stream": "^1.1.1",
+    "glob": "^7.0.5",
     "jsonpath-object-transform": "hirenj/jsonpath-object-transform",
     "map-tabular-keys": "^1.0.0",
     "snake-case": "^2.1.0",
