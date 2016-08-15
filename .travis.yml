@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "4.2"
 script:
-   - 'if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm test:pullrequest fi'
-   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm test fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm test:pullrequest; fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm test; fi'
 deploy:
   provider: s3
   local-dir: output
