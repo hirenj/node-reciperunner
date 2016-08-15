@@ -4,7 +4,9 @@
   "description": "Published PTM / Site data",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/jshint/bin/jshint lib bin/run_recipe",
+    "validate": "npm ls",
+    "test" : " node bin/run_recipe --debug 10 --input sources --validate 2>/dev/null & echo 'Producing valid data'"
   },
   "author": "Hiren Joshi",
   "license": "ISC",
@@ -12,11 +14,18 @@
     "coerce-tabular": "^1.0.0",
     "excel-stream": "^1.1.1",
     "glob": "^7.0.5",
+    "jshint": "^2.9.2",
     "jsonpath-object-transform": "hirenj/jsonpath-object-transform",
     "jsonschema": "^1.1.0",
     "map-tabular-keys": "^1.0.0",
     "nconf": "^0.8.4",
+    "precommit-hook": "^3.0.0",
     "snake-case": "^2.1.0",
     "tabular-stream": "^2.0.1"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }
