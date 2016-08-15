@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/jshint/bin/jshint lib bin/run_recipe",
     "validate": "npm ls",
-    "test": " node bin/run_recipe --debug 10 --input sources --validate 2>/dev/null & echo 'Producing valid data'"
+    "test": "node bin/run_recipe --silent --debug 10 --validate"
   },
   "author": "Hiren Joshi",
   "license": "ISC",
