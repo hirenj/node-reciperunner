@@ -14,6 +14,7 @@
     "glob": "^7.0.5",
     "jsonpath-object-transform": "hirenj/jsonpath-object-transform",
     "map-tabular-keys": "^1.0.0",
+    "nconf": "^0.8.4",
     "snake-case": "^2.1.0",
     "tabular-stream": "^2.0.1"
   }
