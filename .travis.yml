@@ -2,11 +2,12 @@ language: node_js
 node_js:
 - '4.2'
 script:
-- if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm test:pullrequest; fi
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm test; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm run test:pullrequest; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run test:full; fi
 deploy:
   provider: s3
   access_key_id: AKIAJFGWGCZTSVH6R36Q
+  skip_cleanup: true
   secret_access_key:
     secure: W+qZrBSq1OBLA8KH8sPCUN/wB1K2s+MQonoJL26cJqlpxZeOQ4ogCgtBvV0ipCCcNZPVZgyLgOyx8XJCqEG3h+8p2JqlnILgmCfmMybVK0iQlxKb/g9kPLNZ9v1XYoHVHfpoHSn2dpAarDNrio0UKUi5p0TRfZ/zA1w/qT1pPw8Ugk63hkWnyowPpVp0J6zt5Td7nKHeDtGUXGxWtQr1GSyJ3f38XYLxlICdnK9XRkhYbVIDRTxOsmj8POuyfnOqzBHEd4EnYf5cuKMTTh24xD35qhej4hmjFZpss0lWInBTvkydLOzW7brc7bGHzngBHCDstPYms9KMbfnEvvbh5dFWd0xRfak4sZn2Rq4XLyKhReZjF0yviHHOQv4DTlwh5fA6QfTTtNyJNdHsc+hybHpDHojrOzRA3mD7CfZHc8nXJjo1mmIkL3GDcQGl9L9aUVBzOLUHyRt3bTw2m0qWsZr/TsfvEiLg3eDw45PjyAN2nVF+432czlM03wJQx6Ot3wBuq5HXoH7wiYHhCsDI23iIXZCy7DYC0KHUccjJpYh742LjlqQyf/7jIGu+s8BW1BR2OuKIJVpLwTX7uD4CWzpLLjj9g2oK9aDuEDBgitT+QcqeTU7Nli64mZ/66g9zlJT0gIuNSAI5mrTrhGLNKniS8cwByrxw42TULiqLcTA=
   bucket: test-gator

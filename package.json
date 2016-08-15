@@ -7,6 +7,7 @@
     "lint": "./node_modules/jshint/bin/jshint lib bin/run_recipe",
     "validate": "npm ls",
     "test:pullrequest" : "filenames=$((for dir in `git --no-pager diff --name-only FETCH_HEAD $(git merge-base FETCH_HEAD master)`; do dirname $dir; done) | sort -u | paste -s -d, -); npm test -- --input $filenames",
+    "test:full": "node bin/run_recipe --silent",
     "test": "node bin/run_recipe --silent --debug 10 --validate"
   },
   "author": "Hiren Joshi",
