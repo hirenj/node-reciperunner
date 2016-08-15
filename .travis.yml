@@ -5,6 +5,8 @@ node_js:
 script:
 - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm run test:pullrequest; fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run test:full; fi
+before_deploy:
+  - for file in output/*.json;do file=$(basename $file); mkdir "output/published_${file%.json}"; mv "output/$file" "output/published_${file%.json}/public" ; done
 deploy:
   - provider: s3
     access_key_id: AKIAJFGWGCZTSVH6R36Q
@@ -14,7 +16,7 @@ deploy:
     bucket: test-gator
     region: us-east-1
     local-dir: output
-    upload-dir: uploads/published-sitedata
+    upload-dir: uploads
     acl: private
     on:
       repo: hirenj/published-sitedata
@@ -26,7 +28,7 @@ deploy:
     bucket: beta-gator
     region: eu-west-1
     local-dir: output
-    upload-dir: uploads/published-sitedata
+    upload-dir: uploads
     acl: private
     on:
       repo: hirenj/published-sitedata
