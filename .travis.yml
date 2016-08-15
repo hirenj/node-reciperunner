@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "4.2"
+script:
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm test:pullrequest fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm test fi'
+deploy:
+  provider: s3
+  local-dir: output
+  skip_cleanup: true
+  upload-dir: uploads/published-sitedata
+  bucket: test-gator
+  access_key_id: AKIAJ2VL3UT6LDQRRRAA
+  secret_access_key:
+    secure: GLRl1tnDXXDrFUQsPJ3VudZNAQMRImHcwWfBOhGZhUrYzVW+SrvbU8tPlSdC6So+k8OFP5DysuxRx3niDq63LZaBAzAQI6cZmjFmMYBwahML2CAGexMB3IVuwRx7YaTeXseqbmW1Mlcp8oHEOx6r99Fay2PrTxyb9A/fgwTysr01Xmbb4c4p7ZfR41ryi2SnqZ6HvsCXAtdWj14nuBCCcs9LKo9TySIoW+7KB62t/5+2g55DDlqSERlcqOsP9E6HwF///LDLF6Nay9r/8ZrWaoxyt878K7hdkONUJFAo55U/2BUgczgvtMBbWmgNqFyQxSszZmj2CPFd5tU2rXiBrf50Jj5C08MTMiLp/K3RaLWTP4x0iKih2mLTZ+A9lwXu32fCUyPouM+u1b8fJdJQ8v9kuCSSVYtndmjPyUq7SFr21RGPdlPYFM8ORgrDjgXTd9G+84bM4TH+WsufseV7WbSg8WipfKomcbcC1zI01dpdFCTOWivkchLMf+n4qdvsLRqapdD2hNXWLDyoYWLwxHq31Qfu9SvESs+RYtxfVDz8mUjpmA+8Nll/uARyQODI4hqXQiAz9/cahQP3xQRK0jqJw3gZIeusXxx3Aq6O1Ny7/DaqZOakMAgiQ/o+fPpLyR0UGK5Y+/45jPs/ZAe11nt1qbe2g8wAC3VwFC0x0Vs=
