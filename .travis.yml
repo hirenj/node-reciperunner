@@ -19,6 +19,7 @@ deploy:
     upload-dir: uploads
     acl: private
     on:
+      branch: master
       repo: hirenj/published-sitedata
   - provider: s3
     access_key_id: AKIAJFGWGCZTSVH6R36Q
@@ -31,4 +32,5 @@ deploy:
     upload-dir: uploads
     acl: private
     on:
+      branch: master
       repo: hirenj/published-sitedata
