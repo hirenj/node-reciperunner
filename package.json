@@ -24,6 +24,7 @@
     "nconf": "^0.8.4",
     "precommit-hook": "^3.0.0",
     "snake-case": "^2.1.0",
+    "stream-concat": "^0.1.0",
     "tabular-stream": "^2.0.1"
   },
   "pre-commit": [
