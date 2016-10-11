@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-- '4.2'
+- '4.3'
 script:
 - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm run test:pullrequest; fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then rm -rf output; npm run test:full; fi
