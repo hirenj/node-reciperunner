@@ -4,7 +4,7 @@ node_js:
 - '4.2'
 script:
 - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then npm run test:pullrequest; fi
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run test:full; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then rm -rf output; npm run test:full; fi
 before_deploy:
   -  if compgen -G 'output/*.json' > /dev/null; then for file in output/*.json;do file=$(basename $file); mkdir "output/published_${file%.json}"; mv "output/$file" "output/published_${file%.json}/public" ; done; fi
 deploy:
