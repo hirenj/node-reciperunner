@@ -4,7 +4,7 @@
   "description": "Recipe runner module for JSON conversion",
   "main": "index.js",
   "bin" : {
-    "runrecipe" : "bin/run_recipe",
+    "runrecipe" : "bin/run_recipe"
   },
   "scripts": {
     "lint": "./node_modules/jshint/bin/jshint lib",
