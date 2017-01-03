@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Recipe runner module for JSON conversion",
   "main": "index.js",
+  "bin" : {
+    "runrecipe" : "bin/run_recipe",
+  },
   "scripts": {
     "lint": "./node_modules/jshint/bin/jshint lib",
     "validate": "npm ls"
