@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+'use strict';
+
+const nconf = require('nconf');
+
+nconf.argv();
+
+const RecipeFolder = require('node-reciperunner').RecipeFolder;
+const parent_folder = nconf.get('input') || 'sources';
+const output = nconf.get('output') || 'output';
+const Validator = require('jsonschema').Validator;
+
+let runner = (new RecipeFolder(parent_folder,{debug:nconf.get('debug'),output: output }));
+
+let stream_ready = function(stream) {
+  let result = '';
+  stream.on('data',function(dat) {
+    result += dat;
+  });
+  return new Promise(function(resolve,reject) {
+    stream.on('end',function() {
+      let json = null;
+      try {
+        json = JSON.parse(result);
+      } catch(err) {
+        reject(err);
+      }
+      resolve(json);
+    });
+    stream.on('error', (err) => reject(err));
+  });
+};
+
+let schema = {
+  '$schema': 'http://json-schema.org/schema#',
+  'id' : 'http://glycocode.com/schemas/msdata.1.json',
+  'type': 'object',
+  'required' : ['data'],
+  'properties': {
+    'data': {
+      'type': 'object'
+    }
+  }
+};
+
+let validate_jsons = function(validator,jsons) {
+  let all_valid = true;
+  let errors = [];
+  jsons.map(function(json) {
+    let valid = validator.validate(json,schema);
+    if ( valid.errors && valid.errors.length > 0 ) {
+      all_valid = false;
+    }
+    errors.push(valid.errors);
+  });
+  if (! all_valid ) {
+    let err = new Error(errors);
+    err.code = 'VALIDATION';
+    throw err;
+  }
+  return all_valid;
+};
+
+if (nconf.get('silent')) {
+  process.stderr.write = function(){};
+}
+
+if (nconf.get('validate')) {
+  let validator = new Validator();
+  runner.recipe_streams
+  .then((streams) => Promise.all(streams.map(stream_ready)))
+  .then(validate_jsons.bind(null,validator))
+  .then(() => runner.written )
+  .then(() => console.log('Wrote all files'))
+  .then(() => process.exit(0))
+  .catch(function(err) {
+    if (err.code == 'VALIDATION') {
+      console.log(err);
+    } else {
+      console.log(err,err.stack);
+    }
+    process.exit(1);
+  });
+}
+
+runner.ready.catch(function(err) {
+  console.log(err,err.stack);
+});
