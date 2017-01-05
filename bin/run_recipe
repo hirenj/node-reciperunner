@@ -83,6 +83,14 @@ if (nconf.get('validate')) {
   });
 }
 
-runner.ready.catch(function(err) {
+runner.ready.then(() => {
+  if (nconf.get('env')) {
+    let environments = [].concat( nconf.get('env'));
+    (runner.recipes || []).forEach( (recipe) => {
+      recipe.environment = recipe.environment || {};
+      environments.forEach( (envstring) => { let bits = envstring.split('='); recipe.environment[bits[0]] = bits[1]; } );
+    });
+  }
+}).catch(function(err) {
   console.log(err,err.stack);
 });
