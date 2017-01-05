@@ -5,7 +5,7 @@ const nconf = require('nconf');
 
 nconf.argv();
 
-const RecipeFolder = require('node-reciperunner').RecipeFolder;
+const RecipeFolder = require('..').RecipeFolder;
 const parent_folder = nconf.get('input') || 'sources';
 const output = nconf.get('output') || 'output';
 const Validator = require('jsonschema').Validator;
