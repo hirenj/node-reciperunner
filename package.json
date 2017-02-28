@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "coerce-tabular": "^1.0.0",
-    "excel-stream": "^1.1.1",
+    "excel-stream": "hirenj/excel-stream",
     "glob": "^7.0.5",
     "jshint": "^2.9.2",
     "jsonpath-object-transform": "hirenj/jsonpath-object-transform",
