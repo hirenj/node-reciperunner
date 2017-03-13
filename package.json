@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Recipe runner module for JSON conversion",
   "main": "index.js",
-  "bin" : {
-    "runrecipe" : "bin/run_recipe"
+  "bin": {
+    "runrecipe": "bin/run_recipe"
   },
   "scripts": {
     "lint": "./node_modules/jshint/bin/jshint lib",
@@ -24,6 +24,7 @@
     "nconf": "^0.8.4",
     "precommit-hook": "^3.0.0",
     "snake-case": "^2.1.0",
+    "sqlite3": "^3.1.8",
     "stream-concat": "^0.1.0",
     "tabular-stream": "^2.0.1"
   },
