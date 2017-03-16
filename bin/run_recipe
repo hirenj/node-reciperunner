@@ -10,7 +10,7 @@ const parent_folder = nconf.get('input') || 'sources';
 const output = nconf.get('output') || 'output';
 const Validator = require('jsonschema').Validator;
 
-let runner = (new RecipeFolder(parent_folder,{debug:nconf.get('debug'),output: output }));
+let runner = (new RecipeFolder(parent_folder,{debug:nconf.get('debug'),output: output, database: nconf.get('database') }));
 
 let stream_ready = function(stream) {
   let result = '';
