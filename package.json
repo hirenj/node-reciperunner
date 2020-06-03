@@ -20,7 +20,6 @@
     "jshint": "^2.10.2",
     "jsonpath-object-transform": "github:hirenj/jsonpath-object-transform",
     "jsonschema": "^1.1.0",
-    "lambda-helpers": "github:hirenj/lambda-helpers",
     "map-tabular-keys": "^1.0.0",
     "nconf": "^0.8.4",
     "precommit-hook": "^3.0.0",
