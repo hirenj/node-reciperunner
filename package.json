@@ -17,7 +17,7 @@
     "coerce-tabular": "^1.0.0",
     "excel-stream": "github:hirenj/excel-stream",
     "glob": "^7.1.4",
-    "jshint": "^2.10.2",
+    "jshint": "^2.13.5",
     "jsonpath-object-transform": "github:hirenj/jsonpath-object-transform",
     "jsonschema": "^1.1.0",
     "map-tabular-keys": "^1.0.0",
