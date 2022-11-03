@@ -21,7 +21,7 @@
     "jsonpath-object-transform": "github:hirenj/jsonpath-object-transform",
     "jsonschema": "^1.1.0",
     "map-tabular-keys": "^1.0.0",
-    "nconf": "^0.8.4",
+    "nconf": "^0.11.4",
     "precommit-hook": "^3.0.0",
     "snake-case": "^2.1.0",
     "sqlite3": "^5.0.0",
