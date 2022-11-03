@@ -26,7 +26,7 @@
     "snake-case": "^2.1.0",
     "sqlite3": "^5.0.0",
     "stream-concat": "^0.1.0",
-    "tabular-stream": "^2.0.1"
+    "tabular-stream": "^4.0.0"
   },
   "pre-commit": [
     "lint",
